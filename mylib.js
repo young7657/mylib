@@ -47,3 +47,16 @@ window.mylib.date = {
         return format;
     }
 };
+
+window.mylib.htmlspecialchars = function(str){
+    if(typeof str == "undefined" || !str) return "";
+    str = str.toString();
+    if(str.length == 0) return "";
+
+    str = str.replace(/&/g, '&amp;');
+    str = str.replace(/</g, '&lt;');
+    str = str.replace(/>/g, '&gt;');
+    str = str.replace(/"/g, '&quot;');
+    str = str.replace(/'/g, '&#039;');
+    return str;
+};

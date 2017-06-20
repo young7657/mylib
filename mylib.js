@@ -60,3 +60,17 @@ window.mylib.htmlspecialchars = function(str){
     str = str.replace(/'/g, '&#039;');
     return str;
 };
+
+//判断大小写是否打开
+window.mylib.detectCapsLock = function(e) {
+    var keyCode = e.keyCode || e.which;
+    var isShift = e.shiftKey || !!(keyCode == 16);
+    if (
+        ((keyCode >= 65 && keyCode <= 90) && !isShift) ||
+        ((keyCode >= 97 && keyCode <= 122) && isShift)
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+};
